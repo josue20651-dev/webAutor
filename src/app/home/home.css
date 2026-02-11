@@ -1,0 +1,53 @@
+.autor{
+    text-align: center;
+    justify-content: center;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 95%;
+}
+
+.contenidoPrincipal{
+    margin-left: 2rem;
+    text-align: center;
+    width: 70%;
+}
+
+.contenidoSecundario{
+    text-align: center;
+    width: 20%;
+    float: right;
+}
+
+.categoriaPublicacion{
+    color: #C7A17A;
+}
+
+.fechaPublicacion{
+    color: #b8b4b0;
+}
+
+.imgPublicacion{
+    width: 100%;
+}
+
+.descripcionPublicacion{
+    text-align: left;
+}
+
+.sobreMi h4{
+    background-color: #FAF7F2;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.imgSobreMi{
+    width: 100%;
+}
+
+.descripcionSobreMi{
+    text-align: left;
+}
