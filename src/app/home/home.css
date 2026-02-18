@@ -32,13 +32,14 @@
 
 .imgPublicacion{
     width: 100%;
+    height: 400px;
 }
 
 .descripcionPublicacion{
     text-align: left;
 }
 
-.sobreMi h4{
+.sobreMi h4, .novelas h4{
     background-color: #FAF7F2;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -51,3 +52,20 @@
 .descripcionSobreMi{
     text-align: left;
 }
+
+.seguirLeyendo{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.seguirLeyendo:hover{
+    color: #C7A17A;
+}
+
+.listaNovelas{
+    text-align: left;
+    list-style: none;
+    padding: 0;
+}
+

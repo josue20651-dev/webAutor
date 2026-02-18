@@ -1,0 +1,9 @@
+<section class="contenido">
+    <div class="productos" *ngFor="let novela of novelas">
+        <img src="imgPlaceholder.png" alt="" class="imgProducto">
+        <h2 class="tituloProducto">{{novela.titulo}}</h2>
+        <h2 class="precioProducto">{{novela.precio}}</h2>
+        <h2 class="descripcionProducto">DescripcionProducto1</h2>
+        <button type="button" (click)="comprar(novela)">Comprar</button>
+    </div>
+</section>

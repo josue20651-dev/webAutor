@@ -1,0 +1,22 @@
+.contenido{
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin-top: 3rem;
+    gap: 3rem;
+}
+
+.sobreAutor{
+    width: 40%;
+}
+
+.imgAutor{
+    float: left;
+    max-width: 250px;
+    height: 350px;
+    margin-right: 1rem;
+}
+
+.primeraObra{
+    width: 40%;
+}
