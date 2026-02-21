@@ -5,6 +5,8 @@ const app = express();
 const axios = require("axios")
 const apiKey = process.env.FLOW_API_KEY
 const secretKey = process.env.FLOW_SECRET_KEY
+const flowBaseUrl = process.env.FLOW_BASE_URL
+const baseUrl = process.env.BASE_URL
 const cors = require("cors");
 
 
@@ -29,15 +31,15 @@ app.post("/crear-pago", async (req, res) => {
       amount: precio,
       email: email,
       urlConfirmation:
-        "https://melody-unpranked-incandescently.ngrok-free.dev/confirmacion",
-      urlReturn: "http://localhost:4200/"
+        `${baseUrl}/confirmacion`,
+      urlReturn: `${baseUrl}`
     };
 
     const firma = firmar(params, secretKey);
     params.s = firma;
 
     const response = await axios.post(
-      "https://sandbox.flow.cl/api/payment/create",
+      `${flowBaseUrl}/payment/create`,
       new URLSearchParams(params).toString(),
       {
         headers: {
@@ -69,7 +71,7 @@ app.post("/confirmacion", async (req, res) => {
     params.s = firma;
 
     const response = await axios.get(
-      "https://sandbox.flow.cl/api/payment/getStatus",
+      `${flowBaseUrl}/payment/getStatus`,
       { params }
     );
 
