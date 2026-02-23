@@ -119,7 +119,7 @@ app.post('/confirmacion',
   }
 });
 
-app.post('*', (req, res) => {
+app.post(/.*/, (req, res) => {
   res.redirect(303, req.originalUrl);
 });
 
