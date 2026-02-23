@@ -1,0 +1,143 @@
+<!-- ══════════════════════════════════════════════
+     OBRAS — Estética Floral
+     Catálogo completo de obras del autor
+══════════════════════════════════════════════ -->
+
+<div class="obras-page">
+
+  <!-- ── Flores esquina superior izquierda ── -->
+  <svg class="obras-floral-tl" viewBox="0 0 300 280" fill="none">
+    <ellipse cx="28"  cy="28"  rx="90" ry="84" fill="rgba(201,125,138,0.22)"/>
+    <ellipse cx="72"  cy="12"  rx="62" ry="56" fill="rgba(201,125,138,0.16)"/>
+    <ellipse cx="6"   cy="92"  rx="56" ry="50" fill="rgba(201,125,138,0.14)"/>
+    <ellipse cx="128" cy="38"  rx="38" ry="34" fill="rgba(232,180,184,0.14)"/>
+    <ellipse cx="50"  cy="148" rx="32" ry="28" fill="rgba(181,196,177,0.22)"/>
+    <ellipse cx="0"   cy="172" rx="44" ry="38" fill="rgba(181,196,177,0.16)"/>
+    <ellipse cx="96"  cy="178" rx="24" ry="20" fill="rgba(181,196,177,0.14)"/>
+    <ellipse cx="148" cy="72"  rx="26" ry="22" fill="rgba(232,180,184,0.12)"/>
+    <ellipse cx="18"  cy="216" rx="20" ry="17" fill="rgba(201,125,138,0.10)"/>
+  </svg>
+
+  <!-- ── Flores esquina superior derecha ── -->
+  <svg class="obras-floral-tr" viewBox="0 0 240 240" fill="none">
+    <ellipse cx="212" cy="28"  rx="76" ry="70" fill="rgba(181,196,177,0.22)"/>
+    <ellipse cx="168" cy="12"  rx="56" ry="50" fill="rgba(181,196,177,0.16)"/>
+    <ellipse cx="232" cy="90"  rx="50" ry="46" fill="rgba(181,196,177,0.14)"/>
+    <ellipse cx="116" cy="44"  rx="32" ry="28" fill="rgba(232,180,184,0.16)"/>
+    <ellipse cx="196" cy="140" rx="24" ry="20" fill="rgba(232,180,184,0.12)"/>
+    <ellipse cx="144" cy="96"  rx="18" ry="15" fill="rgba(201,125,138,0.10)"/>
+  </svg>
+
+  <!-- ── HEADER ── -->
+  <header class="obras-header">
+    <div class="obras-tag">Catálogo</div>
+
+    <!-- Icono floral central -->
+    <div class="obras-icon">
+      <svg width="48" height="36" viewBox="0 0 52 40" fill="none">
+        <line x1="26" y1="40" x2="26" y2="14" stroke="rgba(201,125,138,0.45)" stroke-width="1"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.75)"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.65)" transform="rotate(60  26 11)"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.65)" transform="rotate(120 26 11)"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.60)" transform="rotate(180 26 11)"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.60)" transform="rotate(240 26 11)"/>
+        <ellipse cx="26" cy="11" rx="4.5" ry="6.5" fill="rgba(232,180,184,0.60)" transform="rotate(300 26 11)"/>
+        <circle  cx="26" cy="11" r="3.2"           fill="rgba(201,125,138,0.75)"/>
+        <ellipse cx="15" cy="24" rx="6.5" ry="3"   fill="rgba(181,196,177,0.65)" transform="rotate(-30 15 24)"/>
+        <ellipse cx="37" cy="24" rx="6.5" ry="3"   fill="rgba(181,196,177,0.65)" transform="rotate(30  37 24)"/>
+        <ellipse cx="10" cy="31" rx="5.5" ry="2.5" fill="rgba(181,196,177,0.50)" transform="rotate(-20 10 31)"/>
+        <ellipse cx="42" cy="31" rx="5.5" ry="2.5" fill="rgba(181,196,177,0.50)" transform="rotate(20  42 31)"/>
+      </svg>
+    </div>
+
+    <h1 class="obras-titulo-principal">Mis Obras</h1>
+    <p class="obras-subtitulo">Cada libro es un mundo que espera ser descubierto</p>
+
+    <!-- Línea decorativa -->
+    <div class="obras-header-rule"></div>
+  </header>
+
+  <!-- ══ GRID DE OBRAS ══ -->
+  <section class="obras-grid">
+
+    @for (obra of obras; track obra.titulo; let i = $index) {
+      <article class="obra-card reveal" [class]="'delay-' + i">
+
+        <!-- Decoración floral en esquina de la card -->
+        <svg class="card-floral" viewBox="0 0 80 80" fill="none">
+          <ellipse cx="10" cy="10" rx="28" ry="26" fill="rgba(232,180,184,0.18)"/>
+          <ellipse cx="32" cy="4"  rx="18" ry="16" fill="rgba(201,125,138,0.12)"/>
+          <ellipse cx="4"  cy="36" rx="16" ry="14" fill="rgba(181,196,177,0.14)"/>
+        </svg>
+
+        <!-- Portada del libro (placeholder estilizado) -->
+        <div class="obra-portada">
+          <div class="libro-cover">
+            <div class="libro-spine"></div>
+            <div class="libro-body">
+              <div class="libro-deco-top">
+                <svg width="36" height="28" viewBox="0 0 52 40" fill="none">
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.6)"/>
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.5)" transform="rotate(60 26 11)"/>
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.5)" transform="rotate(120 26 11)"/>
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.45)" transform="rotate(180 26 11)"/>
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.45)" transform="rotate(240 26 11)"/>
+                  <ellipse cx="26" cy="11" rx="4" ry="5.5" fill="rgba(255,255,255,0.45)" transform="rotate(300 26 11)"/>
+                  <circle  cx="26" cy="11" r="2.8"          fill="rgba(255,255,255,0.7)"/>
+                </svg>
+              </div>
+              <p class="libro-nombre">{{ obra.titulo }}</p>
+              <p class="libro-autor-mini">Javier Morales</p>
+              <div class="libro-linea"></div>
+              <p class="libro-anio">{{ obra.anio }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Información de la obra -->
+        <div class="obra-info">
+          <div class="obra-genero-tag">{{ obra.genero }}</div>
+
+          <h2 class="obra-nombre">{{ obra.titulo }}</h2>
+          <p class="obra-subtitulo-card">{{ obra.subtitulo }}</p>
+
+          <p class="obra-descripcion">{{ obra.descripcion }}</p>
+
+          <!-- Metadatos -->
+          <div class="obra-meta">
+            <span class="meta-item">
+              <span class="meta-label">Año</span>
+              <span class="meta-valor">{{ obra.anio }}</span>
+            </span>
+            <span class="meta-sep">✦</span>
+            <span class="meta-item">
+              <span class="meta-label">Páginas</span>
+              <span class="meta-valor">{{ obra.paginas }}</span>
+            </span>
+            <span class="meta-sep">✦</span>
+            <span class="meta-item">
+              <span class="meta-label">Edición</span>
+              <span class="meta-valor">{{ obra.edicion }}</span>
+            </span>
+          </div>
+
+          <!-- Precio y acción -->
+          <div class="obra-footer">
+            <span class="obra-precio">{{ obra.precio }}</span>
+            <a routerLink="/tienda" class="btn-obra">Adquirir &rsaquo;</a>
+          </div>
+        </div>
+
+      </article>
+    }
+
+  </section>
+
+  <!-- ── Flores esquina inferior ── -->
+  <svg class="obras-floral-br" viewBox="0 0 260 200" fill="none">
+    <ellipse cx="230" cy="170" rx="80" ry="70" fill="rgba(232,180,184,0.18)"/>
+    <ellipse cx="180" cy="190" rx="60" ry="50" fill="rgba(201,125,138,0.12)"/>
+    <ellipse cx="250" cy="110" rx="50" ry="44" fill="rgba(181,196,177,0.14)"/>
+  </svg>
+
+</div>

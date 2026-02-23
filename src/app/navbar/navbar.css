@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .navbar{
     background-color: #FAF7F2;
     display: flex;
@@ -31,3 +32,141 @@
 .redes i:hover{
     color: #C7A17A;
 }
+=======
+/* ══════════════════════════════════════════════════
+   navbar.css — Estética Floral Rosa
+══════════════════════════════════════════════════ */
+
+.navbar {
+  position: relative;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+/* Flores decorativas en esquinas */
+.navbar::before,
+.navbar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.navbar::before {
+  left: 0;
+  background:
+    radial-gradient(ellipse 80px 70px at 20% 50%, rgba(232,180,184,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 55px 50px at 50% 20%, rgba(232,180,184,0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40px 38px at 10% 80%, rgba(181,196,177,0.16) 0%, transparent 70%);
+}
+.navbar::after {
+  right: 0;
+  background:
+    radial-gradient(ellipse 80px 70px at 80% 50%, rgba(181,196,177,0.20) 0%, transparent 70%),
+    radial-gradient(ellipse 55px 50px at 50% 20%, rgba(232,180,184,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40px 38px at 90% 80%, rgba(232,180,184,0.12) 0%, transparent 70%);
+}
+
+/* Logo central estilo caligráfico */
+.navbar-logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 22px;
+  color: var(--rose);
+  letter-spacing: 0.08em;
+  padding: 18px 0 6px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ícono de rosa SVG encima del logo */
+.navbar-icon {
+  display: block;
+  margin: 14px auto 4px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Items de navegación */
+.navbarItems {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+  padding: 8px 0 18px;
+}
+
+.navbarItems h3 {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0 28px;
+  padding-bottom: 3px;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.navbarItems h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: var(--rose);
+  transition: left 0.35s ease, right 0.35s ease;
+}
+
+.navbarItems h3:hover        { color: var(--rose); }
+.navbarItems h3:hover::after { left: 0; right: 0; }
+
+/* Redes sociales */
+.redes {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 40px;
+  z-index: 2;
+}
+
+.redes i {
+  font-size: 17px;
+  color: var(--text-lt);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.redes i:hover {
+  color: var(--rose);
+  transform: scale(1.15);
+}
+
+/* Separador decorativo bajo el nav */
+.navbar-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--blush), transparent);
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .navbarItems { gap: 0; flex-wrap: wrap; justify-content: center; }
+  .navbarItems h3 { margin: 0 14px; font-size: 11px; }
+  .redes { position: static; transform: none; padding: 0 0 12px; }
+}
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ====== CONTENEDOR GENERAL ====== */
 
 .h1Contacto{
@@ -132,4 +133,220 @@ button:hover{
         margin-right: auto;
         text-align: center;
     }
+=======
+/* ══════════════════════════════════════════════════
+   contacto.css — Estética Floral Rosa
+══════════════════════════════════════════════════ */
+
+/* ── PAGE HEADER ── */
+.h1Contacto {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(52px, 7vw, 80px);
+  color: var(--rose-dk);
+  text-align: center;
+  padding: 52px 40px 20px;
+  margin: 0;
+  line-height: 1;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.contacto-subtag {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--rose);
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.4s forwards;
+}
+
+/* ── LAYOUT ── */
+.contenido {
+  display: flex;
+  gap: 32px;
+  max-width: 960px;
+  margin: 0 auto 80px;
+  padding: 0 32px;
+  align-items: flex-start;
+}
+
+/* ── SIDEBAR DATOS ── */
+.sidebarContacto {
+  min-width: 240px;
+  background: var(--white);
+  padding: 32px 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(232,180,184,0.28);
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+.sidebar-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--blush);
+}
+
+.contacto {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(232,180,184,0.2);
+}
+.contacto:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.contacto i {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #FDF0EC, #F9E4E4);
+  border: 1px solid rgba(232,180,184,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--rose);
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.contacto p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ── FORMULARIO ── */
+.formularioContacto {
+  flex: 1;
+  background: var(--white);
+  padding: 36px 40px;
+  border-radius: 16px;
+  border: 1px solid rgba(232,180,184,0.28);
+  box-shadow: 0 4px 24px var(--shadow);
+}
+
+.form-label-top {
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.form-label-top::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--blush);
+}
+
+.divInput {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 0;
+}
+
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+label {
+  font-family: 'Lato', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+
+.inputDiv input,
+textarea {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(232,180,184,0.4);
+  background: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  color: var(--text);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  min-height: 140px;
+}
+
+.inputDiv input:focus,
+textarea:focus {
+  border-color: var(--rose);
+  box-shadow: 0 0 0 3px rgba(232,180,184,0.2);
+}
+
+.inputDiv input::placeholder,
+textarea::placeholder {
+  color: var(--text-lt);
+  font-style: italic;
+}
+
+/* ── BOTÓN ENVIAR ── */
+button[type="button"] {
+  margin-top: 8px;
+  width: 100%;
+  height: 50px;
+  border-radius: 30px;
+  border: none;
+  background: var(--blush);
+  color: var(--white);
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button[type="button"]:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contenido { flex-direction: column; padding: 0 20px; }
+  .divInput  { flex-direction: column; }
+  .h1Contacto { font-size: clamp(44px, 12vw, 64px); }
+  .formularioContacto { padding: 24px 20px; }
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 }
