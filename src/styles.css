@@ -1,6 +1,99 @@
+<<<<<<< HEAD
 /* You can add global styles to this file, and also import other style files */
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 
 body{
     margin: 0;
 }
+=======
+/* ══════════════════════════════════════════════════
+   styles.css — WebAutor · Estética Floral Rosa
+══════════════════════════════════════════════════ */
+
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400&display=swap');
+
+:root {
+  --blush:    #E8B4B8;
+  --rose:     #C97D8A;
+  --rose-dk:  #9B5C68;
+  --cream:    #FDF6F0;
+  --petal:    #F5E6E0;
+  --sage:     #B5C4B1;
+  --text:     #5C4A4A;
+  --text-lt:  #8C7070;
+  --white:    #FFFFFF;
+  --border:   rgba(232,180,184,0.35);
+  --shadow:   rgba(155,92,104,0.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  overflow-x: hidden;
+  cursor: auto;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img { max-width: 100%; display: block; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; padding: 0; }
+h1,h2,h3,h4,h5,h6 { font-family: 'Cormorant Garamond', Georgia, serif; color: var(--text); line-height: 1.2; }
+
+/* ── CURSOR ── */
+.cursor-dot {
+  width: 10px; height: 10px;
+  background: var(--rose);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .25s, height .25s, background .25s;
+}
+.cursor-ring {
+  width: 38px; height: 38px;
+  border: 1.5px solid var(--blush);
+  border-radius: 50%;
+  position: fixed; pointer-events: none; z-index: 9998;
+  transform: translate(-50%,-50%);
+  transition: width .3s, height .3s, opacity .3s;
+  opacity: .6;
+}
+body.cursor-hover .cursor-dot  { width: 18px; height: 18px; background: var(--rose-dk); }
+body.cursor-hover .cursor-ring { width: 58px; height: 58px; opacity: .25; }
+
+/* ── ANIMACIONES ── */
+@keyframes fadeUp  { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:none} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+@keyframes float   { 0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-14px) rotate(-2deg)} }
+
+.reveal        { opacity:0; transform:translateY(28px); transition:opacity .75s ease,transform .75s ease; }
+.reveal.visible{ opacity:1; transform:none; }
+.delay-1       { transition-delay:.15s; }
+.delay-2       { transition-delay:.30s; }
+.blob          { position:absolute; border-radius:50%; pointer-events:none; z-index:0; }
+
+/* ── BOTONES GLOBALES ── */
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--blush); color:var(--white);
+  font-family:'Lato',sans-serif; font-size:12px; font-weight:400; letter-spacing:.2em;
+  border:none; padding:13px 32px; border-radius:30px;
+  cursor:pointer; transition:background .3s,transform .2s; text-decoration:none;
+}
+.btn-primary:hover { background:var(--rose); transform:translateY(-2px); }
+
+.btn-ghost {
+  display:inline-flex; align-items:center;
+  border:1px solid var(--blush); color:var(--rose-dk); background:transparent;
+  font-family:'Lato',sans-serif; font-size:12px; font-weight:300; letter-spacing:.2em;
+  padding:13px 32px; border-radius:30px;
+  cursor:pointer; transition:background .3s,transform .2s; text-decoration:none;
+}
+.btn-ghost:hover { background:rgba(232,180,184,.15); transform:translateY(-2px); }
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)

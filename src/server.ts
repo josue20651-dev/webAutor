@@ -1,10 +1,14 @@
+<<<<<<< HEAD
 import 'dotenv/config';
 
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
+<<<<<<< HEAD
   
 } from '@angular/ssr/node';
 import express from 'express';
@@ -12,6 +16,12 @@ import { join } from 'node:path';
 import cors from 'cors';
 import axios from 'axios';
 import {firmar} from '../backend-flow/utils/firma'
+=======
+} from '@angular/ssr/node';
+import express from 'express';
+import { join } from 'node:path';
+
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
@@ -32,6 +42,7 @@ const angularApp = new AngularNodeAppEngine();
 /**
  * Serve static files from /browser
  */
+<<<<<<< HEAD
 
 app.use(cors());
 
@@ -123,6 +134,8 @@ app.post(/.*/, (req, res) => {
   res.redirect(303, req.originalUrl);
 });
 
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
