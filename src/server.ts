@@ -34,15 +34,17 @@ const angularApp = new AngularNodeAppEngine();
  */
 
 app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
 
 const apiKey = process.env['FLOW_API_KEY']!;
 const secretKey = process.env['FLOW_SECRET_KEY']!;
 const flowBaseUrl = process.env['FLOW_BASE_URL']!;
 const baseUrl = process.env['BASE_URL']!;
 
-app.post('/crear-pago', async (req, res) => {
+app.post('/crear-pago',
+  express.json(),
+  express.urlencoded({ extended: true }),
+  async (req, res) => {
   try {
     const { nombre, precio, email } = req.body;
 
@@ -78,7 +80,10 @@ app.post('/crear-pago', async (req, res) => {
   }
 });
 
-app.post('/confirmacion', async (req, res) => {
+app.post('/confirmacion',
+  express.json(),
+  express.urlencoded({ extended: true }),
+  async (req, res) => {
   console.log('BODY FLOW:', req.body);
 
   try {
