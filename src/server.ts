@@ -56,7 +56,7 @@ app.post('/crear-pago',
       amount: precio,
       email: email,
       urlConfirmation: `${baseUrl}/confirmacion`,
-      urlReturn: `${baseUrl}`,
+      urlReturn: `${baseUrl}/tienda`,
     };
 
     const firma = firmar(params, secretKey);
