@@ -1,0 +1,27 @@
+<!-- HEADER TIENDA -->
+<div class="tienda-header">
+  <div class="tienda-tag">Tienda</div>
+  <h1>Mis obras</h1>
+  <p class="tienda-subtitle">Lleva una historia contigo</p>
+</div>
+
+<!-- GRID DE PRODUCTOS — lógica Flow intacta -->
+<section class="contenido">
+  <div class="productos" *ngFor="let novela of novelas">
+    <div class="producto-img-wrap">
+      <img src="imgPlaceholder.png" alt="" class="imgProducto">
+    </div>
+    <div class="producto-body">
+      <h2 class="tituloProducto">{{novela.titulo}}</h2>
+      <p class="descripcionProducto">DescripcionProducto1</p>
+      <h2 class="precioProducto">${{novela.precio}}</h2>
+      <!-- (click)="comprar(novela)" — función Flow conservada -->
+      <button type="button" (click)="comprar(novela)">Comprar ahora</button>
+      <div class="producto-perks">
+        <span class="perk">Envío Gratis</span>
+        <span class="perk">Edición Física</span>
+        <span class="perk">eBook Disponible</span>
+      </div>
+    </div>
+  </div>
+</section>
