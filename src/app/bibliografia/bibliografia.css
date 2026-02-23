@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-.contenido{
-    display: flex;
-    flex-direction: row;
-    max-width: 1000px;
-    margin-top: 3rem;
-    gap: 3rem;
-}
-
-.sobreAutor{
-    width: 40%;
-}
-
-.imgAutor{
-    float: left;
-    max-width: 250px;
-    height: 350px;
-    margin-right: 1rem;
-}
-
-.primeraObra{
-    width: 40%;
-=======
 /* ══════════════════════════════════════════════════
    bibliografia.css — Estética Floral v2
    Inspirado en la referencia: fondo acuarela,
@@ -431,5 +408,4 @@
   .imgObra, .imgObra-placeholder { width: 150px; }
   .biblio-floral-tl { width: 180px; }
   .biblio-floral-tr { width: 140px; }
->>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 }
