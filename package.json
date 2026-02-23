@@ -9,12 +9,9 @@
     "test": "ng test",
     "serve:ssr:webAutor": "node dist/webAutor/server/server.mjs"
   },
-<<<<<<< HEAD
   "engines": {
     "node": "20.x"
   },
-=======
->>>>>>> 4599050 (Cambios visuales y pestaña Obras)
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
@@ -38,12 +35,9 @@
     "@angular/router": "^20.2.0",
     "@angular/ssr": "^20.2.0",
     "@fortawesome/fontawesome-free": "^7.1.0",
-<<<<<<< HEAD
     "axios": "^1.13.5",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
-=======
->>>>>>> 4599050 (Cambios visuales y pestaña Obras)
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
