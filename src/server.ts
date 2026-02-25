@@ -11,7 +11,7 @@ import express from 'express';
 import { join } from 'node:path';
 import cors from 'cors';
 import axios from 'axios';
-import {firmar} from '../backend-flow/utils/firma'
+import {firmar} from '../firma'
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
