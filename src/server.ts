@@ -41,6 +41,14 @@ const secretKey = process.env['FLOW_SECRET_KEY']!;
 const flowBaseUrl = process.env['FLOW_BASE_URL']!;
 const baseUrl = process.env['BASE_URL']!;
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
+  );
+  next();
+});
+
 app.post('/crear-pago',
   express.json(),
   express.urlencoded({ extended: true }),
