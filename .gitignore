@@ -12,6 +12,10 @@ npm-debug.log
 yarn-error.log
 backend-flow/node_modules
 .env
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 # IDEs and editors
 .idea/
 .project

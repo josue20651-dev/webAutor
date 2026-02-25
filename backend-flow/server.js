@@ -5,6 +5,11 @@ const app = express();
 const axios = require("axios")
 const apiKey = process.env.FLOW_API_KEY
 const secretKey = process.env.FLOW_SECRET_KEY
+<<<<<<< HEAD
+const flowBaseUrl = process.env.FLOW_BASE_URL
+const baseUrl = process.env.BASE_URL
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 const cors = require("cors");
 
 
@@ -29,15 +34,24 @@ app.post("/crear-pago", async (req, res) => {
       amount: precio,
       email: email,
       urlConfirmation:
+<<<<<<< HEAD
+        `${baseUrl}/confirmacion`,
+      urlReturn: `${baseUrl}`
+=======
         "https://melody-unpranked-incandescently.ngrok-free.dev/confirmacion",
       urlReturn: "http://localhost:4200/"
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
     };
 
     const firma = firmar(params, secretKey);
     params.s = firma;
 
     const response = await axios.post(
+<<<<<<< HEAD
+      `${flowBaseUrl}/payment/create`,
+=======
       "https://sandbox.flow.cl/api/payment/create",
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
       new URLSearchParams(params).toString(),
       {
         headers: {
@@ -69,7 +83,11 @@ app.post("/confirmacion", async (req, res) => {
     params.s = firma;
 
     const response = await axios.get(
+<<<<<<< HEAD
+      `${flowBaseUrl}/payment/getStatus`,
+=======
       "https://sandbox.flow.cl/api/payment/getStatus",
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
       { params }
     );
 

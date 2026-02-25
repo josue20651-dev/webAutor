@@ -1,12 +1,27 @@
+<<<<<<< HEAD
+import 'dotenv/config';
+
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
+<<<<<<< HEAD
+  
+} from '@angular/ssr/node';
+import express from 'express';
+import { join } from 'node:path';
+import cors from 'cors';
+import axios from 'axios';
+import {firmar} from '../backend-flow/utils/firma'
+=======
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
 
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
@@ -27,6 +42,100 @@ const angularApp = new AngularNodeAppEngine();
 /**
  * Serve static files from /browser
  */
+<<<<<<< HEAD
+
+app.use(cors());
+
+
+const apiKey = process.env['FLOW_API_KEY']!;
+const secretKey = process.env['FLOW_SECRET_KEY']!;
+const flowBaseUrl = process.env['FLOW_BASE_URL']!;
+const baseUrl = process.env['BASE_URL']!;
+
+app.post('/crear-pago',
+  express.json(),
+  express.urlencoded({ extended: true }),
+  async (req, res) => {
+  try {
+    const { nombre, precio, email } = req.body;
+
+    const params: any = {
+      apiKey: apiKey,
+      commerceOrder: 'orden_' + Date.now(),
+      subject: nombre,
+      currency: 'CLP',
+      amount: precio,
+      email: email,
+      urlConfirmation: `${baseUrl}/confirmacion`,
+      urlReturn: `${baseUrl}/tienda`,
+    };
+
+    const firma = firmar(params, secretKey);
+    params.s = firma;
+
+    const response = await axios.post(
+      `${flowBaseUrl}/payment/create`,
+      new URLSearchParams(params).toString(),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
+    );
+
+    res.json(response.data);
+  } catch (error: any) {
+    console.log('❌ ERROR CREAR PAGO:');
+    console.log(error.response?.data || error.message);
+    res.status(500).send('Error al crear el pago');
+  }
+});
+
+app.post('/confirmacion',
+  express.json(),
+  express.urlencoded({ extended: true }),
+  async (req, res) => {
+  console.log('BODY FLOW:', req.body);
+
+  try {
+    const token = req.body.token;
+
+    const params: any = {
+      apiKey: apiKey,
+      token: token,
+    };
+
+    const firma = firmar(params, secretKey);
+    params.s = firma;
+
+    const response = await axios.get(
+      `${flowBaseUrl}/payment/getStatus`,
+      { params }
+    );
+
+    const estadoPago = response.data;
+
+    console.log('🔔 Confirmación recibida');
+    console.log(estadoPago);
+
+    if (estadoPago.status === 2) {
+      console.log('✅ PAGO APROBADO');
+    }
+
+    res.send('OK');
+  } catch (error: any) {
+    console.log('❌ ERROR CONFIRMACION:');
+    console.log(error.response?.data || error.message);
+    res.status(500).send('Error en confirmación');
+  }
+});
+
+app.post(/.*/, (req, res) => {
+  res.redirect(303, req.originalUrl);
+});
+
+=======
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',

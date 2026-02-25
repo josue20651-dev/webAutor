@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+.contenido{
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+}
+.productos{
+    margin-top: 1rem;
+}
+
+.imgProducto{
+    max-width: 200px;
+    max-height: 200px;
+    float: left;
+    margin-right: 1rem;
+}
+
+.tituloProducto, .descripcionProducto, .precioProducto{
+    margin-top: 0;
+}
+=======
 /* ══════════════════════════════════════════════════
    tienda.css — Estética Floral Rosa
    NOTA: La lógica de compra con Flow se mantiene intacta
@@ -200,3 +220,4 @@ button:hover {
 @media (max-width: 768px) {
   .contenido { grid-template-columns: 1fr; padding: 0 20px; }
 }
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)

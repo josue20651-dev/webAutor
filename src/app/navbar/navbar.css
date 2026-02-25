@@ -1,3 +1,38 @@
+<<<<<<< HEAD
+.navbar{
+    background-color: #FAF7F2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbarItems{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbarItems h3{
+    margin-left: 1.2rem;
+}
+
+.navbarItems h3:hover{
+    color: #C7A17A;
+}
+
+.redes{
+    margin-right: 1.5rem;
+    margin-top: 18.720px;
+}
+
+.redes i{
+    margin-right: 0.5rem;
+    font-size: 20px;
+}
+
+.redes i:hover{
+    color: #C7A17A;
+}
+=======
 /* ══════════════════════════════════════════════════
    navbar.css — Estética Floral Rosa
 ══════════════════════════════════════════════════ */
@@ -134,3 +169,4 @@
   .navbarItems h3 { margin: 0 14px; font-size: 11px; }
   .redes { position: static; transform: none; padding: 0 0 12px; }
 }
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)

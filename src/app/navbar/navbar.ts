@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { Component } from '@angular/core';
+=======
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,6 +11,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
+<<<<<<< HEAD
+export class Navbar {
+
+=======
 export class Navbar implements AfterViewInit {
 
   ngAfterViewInit(): void {
@@ -72,4 +80,5 @@ export class Navbar implements AfterViewInit {
     const mutObs = new MutationObserver(observe);
     mutObs.observe(document.body, { childList: true, subtree: true });
   }
+>>>>>>> 4599050 (Cambios visuales y pestaña Obras)
 }
