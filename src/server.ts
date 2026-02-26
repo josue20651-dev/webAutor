@@ -44,8 +44,43 @@ const baseUrl = process.env['BASE_URL']!;
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
+    `
+    default-src 'self';
+
+    script-src
+      'self'
+      https://sandbox.flow.cl
+      https://www.google.com
+      https://www.gstatic.com
+      https://h.online-metrix.net
+      https://h64.online-metrix.net;
+
+    frame-src
+      'self'
+      https://sandbox.flow.cl
+      https://www.google.com;
+
+    connect-src
+      'self'
+      https://sandbox.flow.cl
+      https://www.google.com;
+
+    img-src
+      'self'
+      data:
+      https://www.google.com;
+
+    style-src
+      'self'
+      'unsafe-inline';
+
+    font-src
+      'self'
+      data:;
+    `
+      .replace(/\n/g, "")
   );
+
   next();
 });
 
