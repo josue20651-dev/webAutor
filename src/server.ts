@@ -45,39 +45,42 @@ app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
     `
-    default-src 'self';
+default-src 'self';
 
-    script-src
-      'self'
-      https://sandbox.flow.cl
-      https://www.google.com
-      https://www.gstatic.com
-      https://h.online-metrix.net
-      https://h64.online-metrix.net;
+script-src
+  'self'
+  'unsafe-inline'
+  https://sandbox.flow.cl
+  https://www.google.com
+  https://www.gstatic.com
+  https://h.online-metrix.net
+  https://h64.online-metrix.net;
 
-    frame-src
-      'self'
-      https://sandbox.flow.cl
-      https://www.google.com;
+frame-src
+  'self'
+  https://sandbox.flow.cl
+  https://www.google.com;
 
-    connect-src
-      'self'
-      https://sandbox.flow.cl
-      https://www.google.com;
+connect-src
+  'self'
+  https://sandbox.flow.cl
+  https://www.google.com;
 
-    img-src
-      'self'
-      data:
-      https://www.google.com;
+img-src
+  'self'
+  data:
+  https:;
 
-    style-src
-      'self'
-      'unsafe-inline';
+style-src
+  'self'
+  'unsafe-inline'
+  https://fonts.googleapis.com;
 
-    font-src
-      'self'
-      data:;
-    `
+font-src
+  'self'
+  data:
+  https://fonts.gstatic.com;
+`
       .replace(/\n/g, "")
   );
 
