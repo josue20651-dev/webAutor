@@ -178,10 +178,6 @@ app.get('/estado-pago', async (req, res) => {
   }
 });
 
-app.post(/.*/, (req, res) => {
-  res.redirect(303, req.originalUrl);
-});
-
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
