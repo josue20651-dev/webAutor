@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -8,6 +8,18 @@ import { RouterModule } from '@angular/router';
   styleUrl: './navbar.css'
 })
 export class Navbar implements AfterViewInit {
+
+  menuAbierto = false;
+
+  toggleMenu(): void {
+    this.menuAbierto = !this.menuAbierto;
+    document.body.style.overflow = this.menuAbierto ? 'hidden' : '';
+  }
+
+  cerrarMenu(): void {
+    this.menuAbierto = false;
+    document.body.style.overflow = '';
+  }
 
   ngAfterViewInit(): void {
     this.initCursor();
@@ -37,7 +49,6 @@ export class Navbar implements AfterViewInit {
     };
     animateRing();
 
-    // Efecto hover: agranda el cursor sobre elementos interactivos
     const hoverTargets = 'a, button, h3, .productos, .publicacion, .obra-card, li';
     document.addEventListener('mouseover', (e) => {
       if ((e.target as Element).closest(hoverTargets)) {
@@ -61,14 +72,12 @@ export class Navbar implements AfterViewInit {
       });
     }, { threshold: 0.12 });
 
-    // Observar elementos .reveal presentes y futuros (NavigationEnd)
     const observe = () => {
       document.querySelectorAll('.reveal:not(.visible)').forEach(el => observer.observe(el));
     };
 
     observe();
 
-    // Re-observar tras navegación entre rutas
     const mutObs = new MutationObserver(observe);
     mutObs.observe(document.body, { childList: true, subtree: true });
   }
