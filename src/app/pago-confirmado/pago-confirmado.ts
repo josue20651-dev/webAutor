@@ -17,7 +17,7 @@ export class PagoConfirmado implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      const token = params['token'];
+      const token = params['token_ws'];
       if (token) {
         this.flow.getEstadoPago(token).subscribe({
           next: (resp: any) => {
