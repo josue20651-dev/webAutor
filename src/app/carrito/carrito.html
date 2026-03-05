@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="envio-gratis">Envío gratis incluido</div>
-    <button class="btn-pagar" routerLink="/finalizarCompra" >
+    <button class="btn-pagar" (click)="carrito.toggleCarrito()" routerLink="/finalizarCompra" >
       Proceder al pago
     </button>
   </div>
