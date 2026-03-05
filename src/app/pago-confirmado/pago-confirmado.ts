@@ -16,25 +16,42 @@ export class PagoConfirmado implements OnInit {
   constructor(private route: ActivatedRoute, private flow: Flow) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      const token = params['token_ws'];
-      if (token) {
-        this.flow.getEstadoPago(token).subscribe({
-          next: (resp: any) => {
-            this.pago = {
-              nombre: resp.subject,
-              email:  resp.payer,
-              precio: resp.amount,
-              token:  token,
-            };
-          },
-          error: () => {
-            this.error = true;
-          }
-        });
-      } else {
+  this.route.queryParams.subscribe(params => {
+
+    console.log('PARAMS:', params);
+
+    const token = params['token_ws'];
+
+    if (!token) {
+      console.log('❌ No llegó token_ws');
+      this.error = true;
+      return;
+    }
+
+    console.log('✅ Token recibido:', token);
+
+    this.flow.getEstadoPago(token).subscribe({
+
+      next: (resp: any) => {
+        console.log('✅ RESPUESTA BACKEND:', resp);
+
+        // ⚠️ Ajusta según la estructura real que imprima el console.log
+        this.pago = {
+          nombre: resp.subject || resp.data?.subject,
+          email:  resp.payer || resp.data?.payer,
+          precio: resp.amount || resp.data?.amount,
+          token:  token,
+        };
+
+        console.log('🎉 Pago procesado:', this.pago);
+      },
+
+      error: (err) => {
+        console.log('❌ ERROR consultando estado:', err);
         this.error = true;
       }
+
     });
-  }
+  });
+}
 }
