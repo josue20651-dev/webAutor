@@ -92,7 +92,7 @@ app.post('/crear-pago',
       amount: total,
       email,
       urlConfirmation: `${baseUrl}/confirmacion`,
-      urlReturn: `http://localhost:4200/pagoConfirmado`,
+      urlReturn: `${baseUrl}/pagoConfirmado`,
     };
 
     const firma = firmar(params, secretKey);
