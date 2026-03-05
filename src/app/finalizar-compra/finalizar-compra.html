@@ -1,0 +1,74 @@
+<!-- HEADER -->
+<div class="page-tag">Checkout</div>
+<h1>Finalizar compra</h1>
+<p class="page-sub">Solo un paso más para llevar tu historia</p>
+
+<div class="layout">
+
+  <!-- ── FORMULARIO ── -->
+  <div class="card">
+    <div class="section-label">Datos personales</div>
+
+    <div class="row">
+      <div class="field">
+        <label>Nombre</label>
+        <input type="text" [(ngModel)]="form.nombre" placeholder="María">
+      </div>
+      <div class="field">
+        <label>Apellido</label>
+        <input type="text" [(ngModel)]="form.apellido" placeholder="González">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Correo electrónico</label>
+      <input type="email" [(ngModel)]="form.email" placeholder="maria@correo.com">
+    </div>
+
+    <div class="field">
+      <label>Teléfono <span class="opcional">(opcional)</span></label>
+      <input type="tel" [(ngModel)]="form.telefono" placeholder="+56 9 1234 5678">
+    </div>
+
+    <div class="sep"></div>
+    <div class="section-label">Región de entrega</div>
+
+    <div class="row">
+      <div class="field">
+        <label>País</label>
+        <input type="text" [(ngModel)]="form.pais" placeholder="Chile">
+      </div>
+      <div class="field">
+        <label>Región</label>
+        <input type="text" [(ngModel)]="form.region" placeholder="Metropolitana">
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RESUMEN ── -->
+  <div class="card resumen-card">
+    <div class="section-label">Tu pedido</div>
+
+    <div class="resumen-items">
+      <div class="resumen-item" *ngFor="let item of carrito.items">
+        <span class="resumen-item-titulo">{{ item.titulo }}</span>
+        <span class="resumen-item-precio">${{ item.precio }}</span>
+      </div>
+    </div>
+
+    <div class="resumen-sep"></div>
+
+    <div class="resumen-fila">
+      <span>Envío</span><span>Gratis</span>
+    </div>
+    <div class="resumen-fila total">
+      <span>Total</span><span>${{ carrito.total }}</span>
+    </div>
+
+    <div class="envio-badge">Envío gratis incluido</div>
+
+    <button class="btn-pagar" (click)="pagar()">Ir a pagar</button>
+    <div class="btn-seguro">Pago seguro vía Flow</div>
+  </div>
+
+</div>

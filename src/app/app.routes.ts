@@ -4,6 +4,8 @@ import { Bibliografia } from './bibliografia/bibliografia';
 import { Contacto } from './contacto/contacto';
 import { Tienda } from './tienda/tienda';
 import { Obras } from './obras/obras';
+import { PagoConfirmado } from './pago-confirmado/pago-confirmado';
+import { FinalizarCompra } from './finalizar-compra/finalizar-compra';
 
 export const routes: Routes = [
     {
@@ -25,5 +27,13 @@ export const routes: Routes = [
     {
         path: "obras",
         component: Obras
+    },
+    {
+        path: "pagoConfirmado",
+        component: PagoConfirmado   
+    },
+    {
+        path: "finalizarCompra",
+        component: FinalizarCompra
     }
 ];

@@ -14,4 +14,8 @@ export class Flow {
     return this.http.post(`${this.api}/crear-pago`, data);
   }
 
+  getEstadoPago(token: string) {
+    return this.http.get(`${this.api}/estado-pago`, { params: { token } });
+  }
+
 }

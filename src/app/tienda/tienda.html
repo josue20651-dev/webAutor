@@ -16,7 +16,8 @@
       <p class="descripcionProducto">DescripcionProducto1</p>
       <h2 class="precioProducto">${{novela.precio}}</h2>
       <!-- (click)="comprar(novela)" — función Flow conservada -->
-      <button type="button" (click)="comprar(novela)">Comprar ahora</button>
+       
+      <button type="button" (click)="carrito.agregarCarrito(novela)">Agregar Al Carrito</button>
       <div class="producto-perks">
         <span class="perk">Envío Gratis</span>
         <span class="perk">Edición Física</span>
