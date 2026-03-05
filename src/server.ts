@@ -178,6 +178,20 @@ app.get('/estado-pago', async (req, res) => {
   }
 });
 
+app.post('/pagoConfirmado',
+  express.urlencoded({ extended: true }),
+  (req, res) => {
+
+    const token = req.body.token_ws;
+
+    if (!token) {
+      return res.redirect('/pagoConfirmado');
+    }
+
+    // Redirige a GET con query param
+    res.redirect(`/pagoConfirmado?token_ws=${token}`);
+});
+
 app.use(
   express.static(browserDistFolder, {
     maxAge: '1y',
