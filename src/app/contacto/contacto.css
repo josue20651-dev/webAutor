@@ -208,8 +208,53 @@ button[type="button"]:hover {
 }
 
 @media (max-width: 768px) {
-  .contenido { flex-direction: column; padding: 0 20px; }
-  .divInput  { flex-direction: column; }
-  .h1Contacto { font-size: clamp(44px, 12vw, 64px); }
-  .formularioContacto { padding: 24px 20px; }
+  .contenido {
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 20px;
+  }
+
+  .h1Contacto {
+    font-size: clamp(44px, 12vw, 64px);
+    padding: 36px 20px 12px;
+  }
+
+  .contacto-subtag {
+    margin-bottom: 24px;
+  }
+
+  /* Sidebar ocupa todo el ancho */
+  .sidebarContacto {
+    min-width: unset;
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  /* Formulario ocupa todo el ancho */
+  .formularioContacto {
+    width: 100%;
+    padding: 24px 20px;
+  }
+
+  /* Nombre y apellido se apilan */
+  .divInput {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Los inputs no se aplasten */
+  .inputDiv input,
+  textarea {
+    font-size: 16px; /* evita zoom automático en iOS */
+    width: 100%;
+  }
+
+  label {
+    font-size: 10px;
+  }
+
+  button[type="button"] {
+    height: 46px;
+    font-size: 11px;
+  }
 }

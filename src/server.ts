@@ -12,13 +12,17 @@ import { join } from 'node:path';
 import cors from 'cors';
 import axios from 'axios';
 import {firmar} from '../firma'
+import { Resend } from 'resend';
+
+
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 app.use(cors());
-
+const resend = new Resend(process.env['RESEND_API_KEY']);
+const resendEmail = process.env['RESEND_EMAIL'] as string;
 const apiKey = process.env['FLOW_API_KEY']!;
 const secretKey = process.env['FLOW_SECRET_KEY']!;
 const flowBaseUrl = process.env['FLOW_BASE_URL']!;
@@ -73,6 +77,42 @@ font-src
 });
 
 const ordenes = new Map<string, any>();
+
+app.post('/contacto',
+  express.json(),
+  async (req, res): Promise<any> => {
+
+    try {
+      const { nombre, email, mensaje, telefono } = req.body;
+
+      if (!nombre || !email || !mensaje) {
+        return res.status(400).json({ error: 'Faltan campos' });
+      }
+      console.log('📧 Enviando a:', resendEmail);
+      console.log('📧 Tipo:', typeof resendEmail);
+      await resend.emails.send({
+        from: 'Contacto <onboarding@resend.dev>',
+        to: [resendEmail],
+        subject: `Nuevo mensaje de ${nombre}`,
+        html: `
+          <h2>Nuevo mensaje desde el formulario</h2>
+
+          <b>Nombre:</b> ${nombre}<br>
+          <b>Telefono:</b> ${telefono}<br>
+          <b>Email:</b> ${email}<br><br>
+
+          <b>Mensaje:</b><br>
+          ${mensaje}
+        `,
+      });
+
+      return res.json({ ok: true });
+
+    } catch (error) {
+      console.error('❌ ERROR ENVÍO EMAIL:', error);
+      return res.status(500).json({ error: 'Error enviando correo' });
+    }
+});
 
 app.post('/crear-pago',
   express.json(),
