@@ -1,0 +1,49 @@
+<!-- PÉTALOS -->
+ 
+<div id="petals"></div>
+
+<div class="card">
+
+  <!-- Check animado -->
+  <div class="check-wrap">
+    <svg class="check-icon" viewBox="0 0 24 24">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+
+  <div class="tag">Confirmación</div>
+  <h1>¡Gracias!</h1>
+  <p class="subtitle">Tu compra ha sido procesada con éxito.<br>Pronto recibirás tu obra.</p>
+
+  <div class="divider"><span>🌸</span></div>
+
+  <!-- Resumen — conecta con los datos que devuelve Flow -->
+  <div class="resumen">
+    <div class="resumen-fila">
+      <span class="resumen-label">Obra</span>
+      <span class="resumen-valor">{{ pago?.nombre }}</span>
+    </div>
+    <div class="resumen-fila">
+      <span class="resumen-label">Correo</span>
+      <span class="resumen-valor">{{ pago?.email }}</span>
+    </div>
+    <div class="resumen-fila">
+      <span class="resumen-label">Envío</span>
+      <span class="resumen-valor">Gratis</span>
+    </div>
+    <div class="resumen-fila total">
+      <span class="resumen-label">Total pagado</span>
+      <span class="resumen-valor">${{ pago?.precio }}</span>
+    </div>
+  </div>
+
+  <p class="mensaje">
+    Te enviaremos un correo a <strong>{{ pago?.email }}</strong> con los detalles
+    y el enlace de descarga de tu eBook.
+  </p>
+
+  <a routerLink="/tienda" class="btn-volver">Volver a la tienda</a>
+
+  <div class="firma">con amor ✦</div>
+
+</div>

@@ -1,0 +1,59 @@
+<!-- BOTÓN FLOTANTE -->
+<button class="carrito-fab" (click)="carrito.toggleCarrito()">
+  🛍️
+  <span class="fab-badge" *ngIf="carrito.items.length > 0">
+    {{ carrito.items.length }}
+  </span>
+</button>
+
+<!-- OVERLAY -->
+<div class="carrito-overlay"
+     [class.visible]="carrito.abierto"
+     (click)="carrito.toggleCarrito()">
+</div>
+
+<!-- PANEL LATERAL -->
+<aside class="carrito-panel" [class.abierto]="carrito.abierto">
+
+  <div class="carrito-header">
+    <div class="carrito-tag">Mi selección</div>
+    <h2>Carrito</h2>
+    <p class="carrito-count">{{ carrito.items.length }} obra(s)</p>
+    <button class="carrito-cerrar" (click)="carrito.toggleCarrito()">✕</button>
+  </div>
+
+  <div class="carrito-lista">
+
+    <div class="carrito-vacio" *ngIf="carrito.items.length === 0">
+      <div class="carrito-vacio-icono">🌸</div>
+      <p>Tu carrito está vacío</p>
+      <span>Explora las obras</span>
+    </div>
+
+    <div class="carrito-item" *ngFor="let item of carrito.items">
+      <div class="carrito-item-img-placeholder">📖</div>
+      <div class="carrito-item-info">
+        <span class="carrito-item-titulo">{{ item.titulo }}</span>
+        <span class="carrito-item-precio">${{ item.precio }}</span>
+      </div>
+      <button class="carrito-item-eliminar"
+              (click)="carrito.eliminarCarrito(item)"
+              title="Eliminar">✕</button>
+    </div>
+
+  </div>
+
+  <div class="carrito-footer" *ngIf="carrito.items.length > 0">
+    <div class="carrito-subtotal">
+      <div class="carrito-linea total">
+        <span>Total</span>
+        <span>${{ carrito.total }}</span>
+      </div>
+    </div>
+    <div class="envio-gratis">Envío gratis incluido</div>
+    <button class="btn-pagar" routerLink="/finalizarCompra" >
+      Proceder al pago
+    </button>
+  </div>
+
+</aside>

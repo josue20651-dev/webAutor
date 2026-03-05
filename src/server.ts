@@ -17,24 +17,7 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
-/**
- * Example Express Rest API endpoints can be defined here.
- * Uncomment and define endpoints as necessary.
- *
- * Example:
- * ```ts
- * app.get('/api/{*splat}', (req, res) => {
- *   // Handle API request
- * });
- * ```
- */
-
-/**
- * Serve static files from /browser
- */
-
 app.use(cors());
-
 
 const apiKey = process.env['FLOW_API_KEY']!;
 const secretKey = process.env['FLOW_SECRET_KEY']!;
@@ -50,6 +33,7 @@ default-src 'self';
 script-src
   'self'
   'unsafe-inline'
+  http://localhost:4200
   https://sandbox.flow.cl
   https://www.google.com
   https://www.gstatic.com
@@ -63,6 +47,7 @@ frame-src
 
 connect-src
   'self'
+  http://localhost:4000
   https://sandbox.flow.cl
   https://www.google.com;
 
@@ -87,22 +72,27 @@ font-src
   next();
 });
 
+const ordenes = new Map<string, any>();
+
 app.post('/crear-pago',
   express.json(),
   express.urlencoded({ extended: true }),
   async (req, res) => {
   try {
-    const { nombre, precio, email } = req.body;
+    const { items, total, email } = req.body;
+    const commerceOrder = 'orden_' + Date.now();
+
+    ordenes.set(commerceOrder, { items, total, email });
 
     const params: any = {
-      apiKey: apiKey,
-      commerceOrder: 'orden_' + Date.now(),
-      subject: nombre,
+      apiKey,
+      commerceOrder,
+      subject: items.map((i: any) => i.titulo).join(', '),
       currency: 'CLP',
-      amount: precio,
-      email: email,
+      amount: total,
+      email,
       urlConfirmation: `${baseUrl}/confirmacion`,
-      urlReturn: `${baseUrl}/tienda`,
+      urlReturn: `${baseUrl}/pagoConfirmado`,
     };
 
     const firma = firmar(params, secretKey);
@@ -130,14 +120,18 @@ app.post('/confirmacion',
   express.json(),
   express.urlencoded({ extended: true }),
   async (req, res) => {
+  console.log('📨 Flow llamó a /confirmacion');
   console.log('BODY FLOW:', req.body);
+
+  // Responde OK inmediatamente para que Flow no haga timeout
+  res.send('OK');
 
   try {
     const token = req.body.token;
 
     const params: any = {
-      apiKey: apiKey,
-      token: token,
+      apiKey,
+      token,
     };
 
     const firma = firmar(params, secretKey);
@@ -157,11 +151,30 @@ app.post('/confirmacion',
       console.log('✅ PAGO APROBADO');
     }
 
-    res.send('OK');
   } catch (error: any) {
     console.log('❌ ERROR CONFIRMACION:');
     console.log(error.response?.data || error.message);
-    res.status(500).send('Error en confirmación');
+  }
+});
+
+// ── ESTADO PAGO (para que el frontend consulte los datos del pago) ──
+app.get('/estado-pago', async (req, res) => {
+  try {
+    const token = req.query['token'] as string;
+
+    const params: any = { apiKey, token };
+    const firma = firmar(params, secretKey);
+    params.s = firma;
+
+    const response = await axios.get(
+      `${flowBaseUrl}/payment/getStatus`,
+      { params }
+    );
+
+    res.json(response.data);
+  } catch (error: any) {
+    console.log('❌ ERROR ESTADO PAGO:', error.response?.data || error.message);
+    res.status(500).send('Error consultando estado');
   }
 });
 
