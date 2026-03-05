@@ -182,13 +182,17 @@ app.post('/pagoConfirmado',
   express.urlencoded({ extended: true }),
   (req, res) => {
 
-    const token = req.body.token_ws;
+    console.log('📥 BODY COMPLETO FLOW:', req.body);
+
+    const token = req.body.token_ws || req.body.token;
 
     if (!token) {
+      console.log('❌ No vino token');
       return res.redirect('/pagoConfirmado');
     }
 
-    // Redirige a GET con query param
+    console.log('✅ Token recibido:', token);
+
     res.redirect(`/pagoConfirmado?token_ws=${token}`);
 });
 
