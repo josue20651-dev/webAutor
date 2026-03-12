@@ -34,6 +34,7 @@
       <div class="carrito-item-img-placeholder">📖</div>
       <div class="carrito-item-info">
         <span class="carrito-item-titulo">{{ item.titulo }}</span>
+        <span class="carrito-item-tipo">{{ item.tipo }}</span>
         <span class="carrito-item-precio">${{ item.precio }}</span>
       </div>
       <button class="carrito-item-eliminar"
@@ -45,13 +46,21 @@
 
   <div class="carrito-footer" *ngIf="carrito.items.length > 0">
     <div class="carrito-subtotal">
+      <div class="carrito-linea" *ngIf="carrito.tienesFisico">
+        <span>Envío</span>
+        <span>${{ carrito.costoEnvio }}</span>
+      </div>
+      <div class="carrito-linea" *ngIf="!carrito.tienesFisico">
+        <span>Envío</span>
+        <span>Gratis · solo digital</span>
+      </div>
       <div class="carrito-linea total">
         <span>Total</span>
         <span>${{ carrito.total }}</span>
       </div>
     </div>
-    <div class="envio-gratis">Envío gratis incluido</div>
-    <button class="btn-pagar" (click)="carrito.toggleCarrito()" routerLink="/finalizarCompra" >
+    <div class="envio-gratis" *ngIf="!carrito.tienesFisico">Envío gratis incluido</div>
+    <button class="btn-pagar" (click)="carrito.toggleCarrito()" routerLink="/finalizarCompra">
       Proceder al pago
     </button>
   </div>
