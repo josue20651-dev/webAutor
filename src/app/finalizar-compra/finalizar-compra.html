@@ -2,13 +2,13 @@
 <div class="page-tag">Checkout</div>
 <h1>Finalizar compra</h1>
 <p class="page-sub">Solo un paso más para llevar tu historia</p>
-
+ 
 <div class="layout">
-
+ 
   <!-- ── FORMULARIO ── -->
   <div class="card">
     <div class="section-label">Datos personales</div>
-
+ 
     <div class="row">
       <div class="field">
         <label>Nombre</label>
@@ -19,56 +19,73 @@
         <input type="text" [(ngModel)]="form.apellido" placeholder="González">
       </div>
     </div>
-
+ 
     <div class="field">
       <label>Correo electrónico</label>
       <input type="email" [(ngModel)]="form.email" placeholder="maria@correo.com">
     </div>
-
+ 
     <div class="field">
       <label>Teléfono <span class="opcional">(opcional)</span></label>
       <input type="tel" [(ngModel)]="form.telefono" placeholder="+56 9 1234 5678">
     </div>
-
+ 
     <div class="sep"></div>
-    <div class="section-label">Región de entrega</div>
-
+    <div class="section-label">Datos de entrega</div>
+ 
+    <!-- Aviso entregas solo Chile -->
+    <div class="entrega-aviso" *ngIf="carrito.tienesFisico">
+      <span class="aviso-icono">📦</span>
+      <span>Las entregas físicas se realizan <strong>solo dentro de Chile</strong></span>
+    </div>
+ 
     <div class="row">
-      <div class="field">
-        <label>País</label>
-        <input type="text" [(ngModel)]="form.pais" placeholder="Chile">
-      </div>
       <div class="field">
         <label>Región</label>
         <input type="text" [(ngModel)]="form.region" placeholder="Metropolitana">
       </div>
+      <div class="field">
+        <label>Comuna</label>
+        <input type="text" [(ngModel)]="form.comuna" placeholder="Santiago">
+      </div>
     </div>
+ 
+    <div class="field">
+      <label>Dirección <span class="opcional">(requerida para edición física)</span></label>
+      <input type="text" [(ngModel)]="form.direccion" placeholder="Av. Providencia 1234, Depto 5B">
+    </div>
+ 
   </div>
-
+ 
   <!-- ── RESUMEN ── -->
   <div class="card resumen-card">
     <div class="section-label">Tu pedido</div>
-
+ 
     <div class="resumen-items">
       <div class="resumen-item" *ngFor="let item of carrito.items">
         <span class="resumen-item-titulo">{{ item.titulo }}</span>
+        <span class="resumen-item-tipo">{{ item.tipo }}</span>
         <span class="resumen-item-precio">${{ item.precio }}</span>
       </div>
     </div>
-
+ 
     <div class="resumen-sep"></div>
-
-    <div class="resumen-fila">
-      <span>Envío</span><span>Gratis</span>
+ 
+    <div class="resumen-fila" *ngIf="carrito.tienesFisico">
+      <span>Envío</span><span>${{ carrito.costoEnvio }}</span>
     </div>
+    <div class="resumen-fila" *ngIf="!carrito.tienesFisico">
+      <span>Envío</span><span>Gratis · solo digital</span>
+    </div>
+ 
     <div class="resumen-fila total">
       <span>Total</span><span>${{ carrito.total }}</span>
     </div>
-
-    <div class="envio-badge">Envío gratis incluido</div>
-
+ 
+    <div class="envio-badge" *ngIf="!carrito.tienesFisico">Envío gratis incluido</div>
+ 
     <button class="btn-pagar" (click)="pagar()">Ir a pagar</button>
     <div class="btn-seguro">Pago seguro vía Flow</div>
   </div>
-
+ 
 </div>

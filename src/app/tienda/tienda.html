@@ -15,11 +15,33 @@
       <h2 class="tituloProducto">{{novela.titulo}}</h2>
       <p class="descripcionProducto">DescripcionProducto1</p>
       <h2 class="precioProducto">${{novela.precio}}</h2>
-      <!-- (click)="comprar(novela)" — función Flow conservada -->
-       
-      <button type="button" (click)="carrito.agregarCarrito(novela)">Agregar Al Carrito</button>
+
+      <!-- Selector de edición -->
+      <div class="edicion-selector">
+        <button type="button"
+                class="edicion-pill"
+                [class.activo]="novela.fisico"
+                (click)="novela.fisico = !novela.fisico">
+          <span class="pill-icon">📦</span>
+          Física
+        </button>
+        <button type="button"
+                class="edicion-pill"
+                [class.activo]="novela.online"
+                (click)="novela.online = !novela.online">
+          <span class="pill-icon">📖</span>
+          eBook
+        </button>
+      </div>
+
+      <button type="button"
+              class="btn-agregar"
+              (click)="carrito.agregarCarrito(novela)"
+              [disabled]="!novela.fisico && !novela.online">
+        Agregar al carrito
+      </button>
+
       <div class="producto-perks">
-        <span class="perk">Envío Gratis</span>
         <span class="perk">Edición Física</span>
         <span class="perk">eBook Disponible</span>
       </div>

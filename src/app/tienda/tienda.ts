@@ -17,11 +17,15 @@ export class Tienda {
     id: 1,
     precio: 5000,
     titulo: "novela prueba",
+    fisico: false,
+    online: false,
   },
   {
     id: 2,
     precio: 6000,
     titulo: "novela prueba2",
+    fisico: false,
+    online: false,
   }   
   ];
 

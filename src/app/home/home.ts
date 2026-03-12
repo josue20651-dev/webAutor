@@ -10,25 +10,18 @@ import { Flow } from '../services/flow';
 })
 export class Home {
 
-  obraDestacada = {
-    titulo: 'El Jardín de los Suspiros',
-    precio: 16900,
-    email: 'josue20650@gmail.com'
-  };
+  slideActivo: number = 0;
+  readonly totalSlides = 3;
 
-  constructor(private flow: Flow) {}
+  nextSlide() {
+    this.slideActivo = (this.slideActivo + 1) % this.totalSlides;
+  }
 
-  comprar(): void {
-    const datosPago = {
-      nombre: this.obraDestacada.titulo,
-      precio: this.obraDestacada.precio,
-      email:  this.obraDestacada.email
-    };
+  prevSlide() {
+    this.slideActivo = (this.slideActivo - 1 + this.totalSlides) % this.totalSlides;
+  }
 
-    this.flow.crearPago(datosPago)
-      .subscribe((resp: any) => {
-        const url = resp.url + '?token=' + resp.token;
-        window.location.href = url;
-      });
+  irASlide(index: number) {
+    this.slideActivo = index;
   }
 }
