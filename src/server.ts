@@ -159,8 +159,7 @@ app.post('/contacto',
 // CATÁLOGO — precios reales (nunca desde el frontend)
 // ══════════════════════════════════════════════════
 const catalogoNovelas: Record<number, { titulo: string; precio: number }> = {
-  1: { titulo: 'Novela prueba',  precio: 5000 },
-  2: { titulo: 'Novela prueba2', precio: 6000 },
+  1: { titulo: 'El Lobo y la Luna', precio: 9990 }, // 9,99 USD expresado en CLP aprox — ajusta según tu conversión
 };
  
 const COSTO_ENVIO = 5490;
@@ -189,8 +188,6 @@ app.post('/crear-pago',
       }).join(', ');
  
       const commerceOrder = 'orden_' + Date.now();
- 
-      // Guarda orden con datos de entrega para usarlos en /confirmacion
       ordenes.set(commerceOrder, { items, total, email, nombre, telefono, entrega, tienesFisico });
  
       const params: any = {
@@ -229,8 +226,6 @@ app.post('/confirmacion',
   express.urlencoded({ extended: true }),
   async (req, res) => {
     console.log('📨 Flow llamó a /confirmacion');
- 
-    // Responde OK inmediatamente para que Flow no haga timeout
     res.send('OK');
  
     try {
@@ -251,11 +246,9 @@ app.post('/confirmacion',
       if (estadoPago.status === 2) {
         console.log('✅ PAGO APROBADO');
  
-        // Busca la orden guardada para obtener datos de entrega
         const orden = ordenes.get(estadoPago.commerceOrder);
  
         if (orden) {
-          // Construye lista de ítems con nombre real del catálogo
           const itemsDetalle = orden.items.map((i: any) => ({
             titulo: catalogoNovelas[i.id]?.titulo || `Producto #${i.id}`,
             tipo:   i.tipo,
@@ -277,7 +270,6 @@ app.post('/confirmacion',
           });
  
           console.log('📧 Correo de compra enviado');
-          // Limpia la orden de memoria una vez enviado el correo
           ordenes.delete(estadoPago.commerceOrder);
         } else {
           console.log('⚠️ Orden no encontrada en memoria:', estadoPago.commerceOrder);
@@ -362,4 +354,3 @@ if (isMainModule(import.meta.url)) {
 }
  
 export const reqHandler = createNodeRequestHandler(app);
- 

@@ -1,6 +1,5 @@
 <section class="carrusel-section">
  
-  <!-- Pétalos decorativos laterales -->
   <svg class="carrusel-floral-l" viewBox="0 0 120 200" fill="none">
     <ellipse cx="10"  cy="60"  rx="55" ry="40" fill="rgba(232,180,184,0.18)"/>
     <ellipse cx="0"   cy="110" rx="45" ry="32" fill="rgba(181,196,177,0.15)"/>
@@ -12,7 +11,6 @@
     <ellipse cx="90"  cy="155" rx="30" ry="22" fill="rgba(181,196,177,0.12)"/>
   </svg>
  
-  <!-- Título sección -->
   <div class="carrusel-header">
     <div class="carrusel-rule"></div>
     <h2 class="carrusel-titulo">Encuéntrame en</h2>
@@ -21,21 +19,74 @@
  
   <div class="carrusel-wrapper">
  
-    <!-- Botón anterior -->
-    <button class="carrusel-btn carrusel-btn-prev" (click)="prevSlide()" aria-label="Anterior">
+    <button class="carrusel-btn" (click)="prevSlide()" aria-label="Anterior">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
         <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </button>
  
-    <!-- Track de slides -->
     <div class="carrusel-track-wrap">
       <div class="carrusel-track" [style.transform]="'translateX(-' + (slideActivo * 100) + '%)'">
  
-        <!-- SLIDE 1 — Amazon -->
+        <!-- SLIDE 1 — TikTok -->
+        <div class="carrusel-slide">
+          <a href="https://www.tiktok.com/@austenjobs" target="_blank" rel="noopener" class="slide-link">
+            <div class="slide-icono">
+              <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
+                <path d="M32 8c0 4.4 3.6 8 8 8v6c-3 0-5.8-.9-8-2.5V30c0 6.6-5.4 12-12 12S8 36.6 8 30s5.4-12 12-12c.7 0 1.3.1 2 .2v6.3c-.6-.2-1.3-.3-2-.3-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V8h6z" fill="#010101" opacity="0.85"/>
+                <path d="M32 8c0 4.4 3.6 8 8 8v6c-3 0-5.8-.9-8-2.5V30c0 6.6-5.4 12-12 12S8 36.6 8 30s5.4-12 12-12c.7 0 1.3.1 2 .2v6.3c-.6-.2-1.3-.3-2-.3-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V8h6z" fill="#69C9D0" opacity="0.4" transform="translate(-2 2)"/>
+                <path d="M32 8c0 4.4 3.6 8 8 8v6c-3 0-5.8-.9-8-2.5V30c0 6.6-5.4 12-12 12S8 36.6 8 30s5.4-12 12-12c.7 0 1.3.1 2 .2v6.3c-.6-.2-1.3-.3-2-.3-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V8h6z" fill="#EE1D52" opacity="0.35" transform="translate(2 -2)"/>
+              </svg>
+            </div>
+            <h3 class="slide-nombre">TikTok</h3>
+            <p class="slide-desc">Sígueme en TikTok para<br>contenido exclusivo</p>
+            <span class="slide-cta">Seguir en TikTok →</span>
+          </a>
+        </div>
+ 
+        <!-- SLIDE 2 — Instagram -->
+        <div class="carrusel-slide">
+          <a href="https://www.instagram.com/austenjobs/" target="_blank" rel="noopener" class="slide-link">
+            <div class="slide-icono">
+              <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
+                <defs>
+                  <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%"   stop-color="#FFDC80"/>
+                    <stop offset="25%"  stop-color="#FCAF45"/>
+                    <stop offset="50%"  stop-color="#F77737"/>
+                    <stop offset="75%"  stop-color="#C13584"/>
+                    <stop offset="100%" stop-color="#833AB4"/>
+                  </linearGradient>
+                </defs>
+                <rect x="8" y="8" width="32" height="32" rx="10" fill="url(#ig-grad)" opacity="0.9"/>
+                <circle cx="24" cy="24" r="8" stroke="white" stroke-width="2.2" fill="none"/>
+                <circle cx="34" cy="14" r="2" fill="white"/>
+              </svg>
+            </div>
+            <h3 class="slide-nombre">Instagram</h3>
+            <p class="slide-desc">Fotos, historias y<br>novedades literarias</p>
+            <span class="slide-cta">Seguir en Instagram →</span>
+          </a>
+        </div>
+ 
+        <!-- SLIDE 3 — X -->
+        <div class="carrusel-slide">
+          <a href="https://x.com/austenjobs1" target="_blank" rel="noopener" class="slide-link">
+            <div class="slide-icono">
+              <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
+                <path d="M8 8L22 26M8 8H16L40 40H32M8 8 M22 26L32 40M22 26L40 8H32L22 26" stroke="#0f0f0f" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+              </svg>
+            </div>
+            <h3 class="slide-nombre">X</h3>
+            <p class="slide-desc">Pensamientos, citas<br>y conversaciones</p>
+            <span class="slide-cta">Seguir en X →</span>
+          </a>
+        </div>
+ 
+        <!-- SLIDE 4 — Amazon -->
         <div class="carrusel-slide">
           <a href="https://www.amazon.com" target="_blank" rel="noopener" class="slide-link">
-            <div class="slide-icono amazon-icono">
+            <div class="slide-icono">
               <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
                 <path d="M8 31c7 4.5 22 7 32-2" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
                 <path d="M36 31l4-1.5-1.5 4" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -48,10 +99,10 @@
           </a>
         </div>
  
-        <!-- SLIDE 2 — Wattpad -->
+        <!-- SLIDE 5 — Wattpad -->
         <div class="carrusel-slide">
           <a href="https://www.wattpad.com" target="_blank" rel="noopener" class="slide-link">
-            <div class="slide-icono wattpad-icono">
+            <div class="slide-icono">
               <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
                 <circle cx="24" cy="24" r="18" fill="rgba(255,97,34,0.10)"/>
                 <path d="M13 16l4 16 4-10 4 10 4-16" stroke="#FF6122" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -63,26 +114,10 @@
           </a>
         </div>
  
-        <!-- SLIDE 3 — Por editar -->
-        <div class="carrusel-slide">
-          <a href="#" class="slide-link">
-            <div class="slide-icono custom-icono">
-              <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
-                <circle cx="24" cy="24" r="18" fill="rgba(201,125,138,0.10)"/>
-                <path d="M24 14v20M14 24h20" stroke="rgba(201,125,138,0.55)" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <h3 class="slide-nombre">Próximamente</h3>
-            <p class="slide-desc">Nuevo lugar donde<br>encontrar mis obras</p>
-            <span class="slide-cta">Descubrir →</span>
-          </a>
-        </div>
- 
       </div>
     </div>
  
-    <!-- Botón siguiente -->
-    <button class="carrusel-btn carrusel-btn-next" (click)="nextSlide()" aria-label="Siguiente">
+    <button class="carrusel-btn" (click)="nextSlide()" aria-label="Siguiente">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
         <path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -90,12 +125,11 @@
  
   </div>
  
-  <!-- Dots indicadores -->
   <div class="carrusel-dots">
-    <button class="carrusel-dot" [class.activo]="slideActivo === 0" (click)="irASlide(0)"></button>
-    <button class="carrusel-dot" [class.activo]="slideActivo === 1" (click)="irASlide(1)"></button>
-    <button class="carrusel-dot" [class.activo]="slideActivo === 2" (click)="irASlide(2)"></button>
+    <button class="carrusel-dot" *ngFor="let d of [0,1,2,3,4]"
+            [class.activo]="slideActivo === d"
+            (click)="irASlide(d)">
+    </button>
   </div>
  
 </section>
- 
