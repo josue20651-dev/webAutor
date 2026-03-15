@@ -255,6 +255,67 @@ button:hover {
   transform: none;
 }
 
+/* ── PILL FÍSICA PRÓXIMAMENTE ── */
+ 
+/* Wrapper necesario para posicionar el tooltip */
+.pill-wrap {
+  position: relative;
+  flex: 1;
+}
+.pill-wrap .edicion-pill {
+  width: 100%;
+}
+ 
+/* Pill desactivada */
+.edicion-pill.proximamente {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none; /* deja que el tooltip sea visible igual */
+}
+ 
+/* Tooltip */
+.pill-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(155,92,104,0.92);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+ 
+/* Flecha del tooltip */
+.pill-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(155,92,104,0.92);
+}
+ 
+/* Mostrar tooltip al hacer hover sobre el wrapper */
+.pill-wrap.tiene-tooltip:hover .pill-tooltip {
+  opacity: 1;
+}
+ 
+/* Perk "próximamente" en gris */
+.perk-pronto {
+  opacity: 0.55;
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .contenido { grid-template-columns: 1fr; padding: 0 20px; }
 }

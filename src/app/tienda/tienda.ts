@@ -2,53 +2,29 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Flow } from '../services/flow';
 import { FormsModule } from "@angular/forms";
-import { RouterLink, RouterModule } from "@angular/router";
+import { RouterModule } from "@angular/router";
 import { carritoService } from '../services/carritoService';
-
+ 
 @Component({
   selector: 'app-tienda',
-  imports: [CommonModule, FormsModule,  RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './tienda.html',
   styleUrl: './tienda.css',
 })
 export class Tienda {
-
-  novelas: any[] = [{
-    id: 1,
-    precio: 5000,
-    titulo: "novela prueba",
-    fisico: false,
-    online: false,
-  },
-  {
-    id: 2,
-    precio: 6000,
-    titulo: "novela prueba2",
-    fisico: false,
-    online: false,
-  }   
+ 
+  novelas: any[] = [
+    {
+      id: 1,
+      precio: 9.99,       // USD — el backend valida el precio real
+      titulo: 'El Lobo y la Luna',
+      descripcion: 'Hay una leyenda que dice que cuando un hombre mira la luna, mira a la mujer que ama. Un relato de amor, redención y segundas oportunidades.',
+      imagen: '/ElLoboYLaLuna.jpg',
+      fisico: false,
+      online: false,
+      fisicoProximo: true,  // ← desactiva la pill física y muestra tooltip
+    },
   ];
-
-  precio: number = 5000;
-  titulo: string = "Novela prueba";
-  email: string = "josue20650@gmail.com";
-
-  constructor(private flow: Flow, public carrito: carritoService){}
-
-  comprar(novela: any){
-
-    const datosPago = {
-      nombre: novela.titulo,
-      precio: novela.precio,
-      email: 'josue20650@gmail.com'
-    };
-
-    this.flow.crearPago(datosPago)
-      .subscribe((resp: any) =>{
-        const url = resp.url + '?token=' + resp.token;
-
-        window.location.href = url;
-      })
-  }
-
+ 
+  constructor(private flow: Flow, public carrito: carritoService) {}
 }

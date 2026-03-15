@@ -4,27 +4,36 @@
   <h1>Mis obras</h1>
   <p class="tienda-subtitle">Lleva una historia contigo</p>
 </div>
-
-<!-- GRID DE PRODUCTOS — lógica Flow intacta -->
+ 
+<!-- GRID DE PRODUCTOS -->
 <section class="contenido">
   <div class="productos" *ngFor="let novela of novelas">
     <div class="producto-img-wrap">
-      <img src="imgPlaceholder.png" alt="" class="imgProducto">
+      <img [src]="novela.imagen" alt="{{ novela.titulo }}" class="imgProducto">
     </div>
     <div class="producto-body">
-      <h2 class="tituloProducto">{{novela.titulo}}</h2>
-      <p class="descripcionProducto">DescripcionProducto1</p>
-      <h2 class="precioProducto">${{novela.precio}}</h2>
-
+      <h2 class="tituloProducto">{{ novela.titulo }}</h2>
+      <p class="descripcionProducto">{{ novela.descripcion }}</p>
+      <h2 class="precioProducto">${{ novela.precio }} USD</h2>
+ 
       <!-- Selector de edición -->
       <div class="edicion-selector">
-        <button type="button"
-                class="edicion-pill"
-                [class.activo]="novela.fisico"
-                (click)="novela.fisico = !novela.fisico">
-          <span class="pill-icon">📦</span>
-          Física
-        </button>
+ 
+        <!-- Pill Física — desactivada si fisicoProximo es true -->
+        <div class="pill-wrap" [class.tiene-tooltip]="novela.fisicoProximo">
+          <button type="button"
+                  class="edicion-pill"
+                  [class.activo]="novela.fisico"
+                  [class.proximamente]="novela.fisicoProximo"
+                  [disabled]="novela.fisicoProximo"
+                  (click)="!novela.fisicoProximo && (novela.fisico = !novela.fisico)">
+            <span class="pill-icon">📦</span>
+            Física
+          </button>
+          <span class="pill-tooltip" *ngIf="novela.fisicoProximo">Próximamente</span>
+        </div>
+ 
+        <!-- Pill eBook — activa normalmente -->
         <button type="button"
                 class="edicion-pill"
                 [class.activo]="novela.online"
@@ -32,18 +41,19 @@
           <span class="pill-icon">📖</span>
           eBook
         </button>
+ 
       </div>
-
+ 
       <button type="button"
               class="btn-agregar"
               (click)="carrito.agregarCarrito(novela)"
               [disabled]="!novela.fisico && !novela.online">
         Agregar al carrito
       </button>
-
+ 
       <div class="producto-perks">
-        <span class="perk">Edición Física</span>
         <span class="perk">eBook Disponible</span>
+        <span class="perk perk-pronto">Edición Física · Próximamente</span>
       </div>
     </div>
   </div>

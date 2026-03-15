@@ -1,8 +1,3 @@
-/* ══════════════════════════════════════════════════
-   obras.css — Estética Floral Rosa
-   Catálogo de obras del autor
-══════════════════════════════════════════════════ */
-
 /* ── WRAPPER ── */
 .obras-page {
   position: relative;
@@ -10,7 +5,7 @@
   background: #FDF6F0;
   overflow: hidden;
 }
-
+ 
 /* Manchas acuarela de fondo */
 .obras-page::before {
   content: '';
@@ -24,7 +19,7 @@
   pointer-events: none;
   z-index: 0;
 }
-
+ 
 /* ── FLORES DECORATIVAS ── */
 .obras-floral-tl {
   position: absolute; top: 0; left: 0;
@@ -38,7 +33,7 @@
   position: absolute; bottom: 0; right: 0;
   width: 240px; pointer-events: none; z-index: 1;
 }
-
+ 
 /* ── HEADER ── */
 .obras-header {
   text-align: center;
@@ -46,7 +41,7 @@
   position: relative;
   z-index: 2;
 }
-
+ 
 .obras-tag {
   font-family: 'Lato', sans-serif;
   font-size: 10px;
@@ -67,13 +62,13 @@
   height: 1px;
   background: var(--blush);
 }
-
+ 
 .obras-icon {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
 }
-
+ 
 .obras-titulo-principal {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(52px, 8vw, 84px);
@@ -83,7 +78,7 @@
   opacity: 0;
   animation: fadeUp 0.8s 0.2s forwards;
 }
-
+ 
 .obras-subtitulo {
   font-size: 17px;
   font-style: italic;
@@ -92,14 +87,14 @@
   opacity: 0;
   animation: fadeUp 0.7s 0.45s forwards;
 }
-
+ 
 .obras-header-rule {
   margin: 28px auto 0;
   max-width: 400px;
   height: 1px;
   background: linear-gradient(to right, transparent, rgba(201,125,138,0.3), transparent);
 }
-
+ 
 /* ══════════════════════════════════════════════════
    GRID DE OBRAS
 ══════════════════════════════════════════════════ */
@@ -113,7 +108,7 @@
   position: relative;
   z-index: 2;
 }
-
+ 
 /* ── TARJETA DE OBRA ── */
 .obra-card {
   display: flex;
@@ -132,7 +127,7 @@
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(201,125,138,0.16);
 }
-
+ 
 /* Decoración floral en la esquina de la card */
 .card-floral {
   position: absolute;
@@ -141,75 +136,25 @@
   pointer-events: none;
   opacity: 0.8;
 }
-
-/* ── PORTADA / LIBRO ── */
+ 
+/* ── PORTADA — imagen real ── */
 .obra-portada {
   flex-shrink: 0;
 }
-
-.libro-cover {
-  display: flex;
+ 
+.libro-img {
   width: 110px;
   height: 155px;
+  object-fit: cover;
   border-radius: 3px 10px 10px 3px;
-  box-shadow: 4px 6px 18px rgba(100,60,70,0.22), inset -2px 0 6px rgba(0,0,0,0.06);
-  overflow: hidden;
-  position: relative;
+  box-shadow: 4px 6px 18px rgba(100,60,70,0.22), -2px 0 6px rgba(0,0,0,0.06);
+  display: block;
+  transition: transform 0.4s;
 }
-
-.libro-spine {
-  width: 12px;
-  background: linear-gradient(180deg, rgba(160,75,90,0.9) 0%, rgba(130,55,70,0.9) 100%);
-  flex-shrink: 0;
+.obra-card:hover .libro-img {
+  transform: rotate(-1.5deg) scale(1.04);
 }
-
-.libro-body {
-  flex: 1;
-  background: linear-gradient(135deg, rgba(201,125,138,0.85) 0%, rgba(175,95,112,0.90) 60%, rgba(155,80,95,0.92) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 8px;
-  gap: 6px;
-  position: relative;
-}
-
-.libro-deco-top {
-  margin-bottom: 4px;
-}
-
-.libro-nombre {
-  font-family: 'Great Vibes', cursive;
-  font-size: 14px;
-  color: rgba(255,255,255,0.95);
-  text-align: center;
-  line-height: 1.3;
-}
-
-.libro-autor-mini {
-  font-family: 'Lato', sans-serif;
-  font-size: 8px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  text-align: center;
-}
-
-.libro-linea {
-  width: 30px;
-  height: 1px;
-  background: rgba(255,255,255,0.4);
-  margin: 2px auto;
-}
-
-.libro-anio {
-  font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.65);
-}
-
+ 
 /* ── INFORMACIÓN ── */
 .obra-info {
   flex: 1;
@@ -217,25 +162,7 @@
   flex-direction: column;
   gap: 10px;
 }
-
-.obra-genero-tag {
-  display: inline-flex;
-  align-items: center;
-  font-family: 'Lato', sans-serif;
-  font-size: 9px;
-  font-weight: 300;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--rose);
-  gap: 8px;
-}
-.obra-genero-tag::before {
-  content: '';
-  width: 20px;
-  height: 1px;
-  background: var(--blush);
-}
-
+ 
 .obra-nombre {
   font-family: 'Great Vibes', cursive;
   font-size: clamp(28px, 3.5vw, 38px);
@@ -243,7 +170,7 @@
   line-height: 1.1;
   margin: 0;
 }
-
+ 
 .obra-subtitulo-card {
   font-size: 11px;
   font-weight: 300;
@@ -251,7 +178,7 @@
   color: var(--text-lt);
   font-style: italic;
 }
-
+ 
 .obra-descripcion {
   font-family: 'Lato', sans-serif;
   font-size: 14px;
@@ -260,52 +187,17 @@
   color: var(--text);
   margin: 4px 0;
 }
-
-/* ── METADATOS ── */
-.obra-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  padding: 10px 0;
-  border-top: 1px solid rgba(201,125,138,0.12);
-  border-bottom: 1px solid rgba(201,125,138,0.12);
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.meta-label {
-  font-size: 9px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--text-lt);
-  font-weight: 300;
-}
-
-.meta-valor {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text);
-}
-
-.meta-sep {
-  color: rgba(201,125,138,0.4);
-  font-size: 8px;
-  align-self: center;
-}
-
+ 
 /* ── FOOTER DE CARD ── */
 .obra-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(201,125,138,0.12);
 }
-
+ 
 .obra-precio {
   font-family: 'Lato', sans-serif;
   font-size: 20px;
@@ -313,7 +205,7 @@
   color: var(--rose-dk);
   letter-spacing: 0.04em;
 }
-
+ 
 .btn-obra {
   display: inline-block;
   padding: 9px 26px;
@@ -333,9 +225,9 @@
   color: #fff;
   border-color: var(--rose-dk);
 }
-
+ 
 /* ══════════════════════════════════════════════════
-   REVEAL (scroll animation — manejado por navbar.ts)
+   REVEAL (scroll animation)
 ══════════════════════════════════════════════════ */
 .reveal {
   opacity: 0;
@@ -350,13 +242,13 @@
 .reveal.delay-1 { transition-delay: 0.18s; }
 .reveal.delay-2 { transition-delay: 0.31s; }
 .reveal.delay-3 { transition-delay: 0.44s; }
-
+ 
 /* ── FADE UP ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0);    }
 }
-
+ 
 /* ══════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════ */
@@ -366,22 +258,14 @@
     padding: 0 20px;
     gap: 28px;
   }
-
+ 
   .obra-card {
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 28px 24px;
   }
-
-  .obra-genero-tag {
-    justify-content: center;
-  }
-
-  .obra-meta {
-    justify-content: center;
-  }
-
+ 
   .obra-footer {
     flex-direction: column;
     gap: 14px;
