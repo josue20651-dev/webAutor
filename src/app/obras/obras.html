@@ -1,7 +1,5 @@
-
 <div class="obras-page">
  
-  <!-- ── Flores esquina superior izquierda ── -->
   <svg class="obras-floral-tl" viewBox="0 0 300 280" fill="none">
     <ellipse cx="28"  cy="28"  rx="90" ry="84" fill="rgba(201,125,138,0.22)"/>
     <ellipse cx="72"  cy="12"  rx="62" ry="56" fill="rgba(201,125,138,0.16)"/>
@@ -14,7 +12,6 @@
     <ellipse cx="18"  cy="216" rx="20" ry="17" fill="rgba(201,125,138,0.10)"/>
   </svg>
  
-  <!-- ── Flores esquina superior derecha ── -->
   <svg class="obras-floral-tr" viewBox="0 0 240 240" fill="none">
     <ellipse cx="212" cy="28"  rx="76" ry="70" fill="rgba(181,196,177,0.22)"/>
     <ellipse cx="168" cy="12"  rx="56" ry="50" fill="rgba(181,196,177,0.16)"/>
@@ -24,7 +21,6 @@
     <ellipse cx="144" cy="96"  rx="18" ry="15" fill="rgba(201,125,138,0.10)"/>
   </svg>
  
-  <!-- ── HEADER ── -->
   <header class="obras-header">
     <div class="obras-tag">Catálogo</div>
  
@@ -47,38 +43,33 @@
  
     <h1 class="obras-titulo-principal">Mis Obras</h1>
     <p class="obras-subtitulo">Cada libro es un mundo que espera ser descubierto</p>
- 
     <div class="obras-header-rule"></div>
   </header>
  
-  <!-- ══ GRID DE OBRAS ══ -->
   <section class="obras-grid">
  
     @for (obra of obras; track obra.titulo; let i = $index) {
       <article class="obra-card reveal" [class]="'delay-' + i">
  
-        <!-- Decoración floral en esquina de la card -->
         <svg class="card-floral" viewBox="0 0 80 80" fill="none">
           <ellipse cx="10" cy="10" rx="28" ry="26" fill="rgba(232,180,184,0.18)"/>
           <ellipse cx="32" cy="4"  rx="18" ry="16" fill="rgba(201,125,138,0.12)"/>
           <ellipse cx="4"  cy="36" rx="16" ry="14" fill="rgba(181,196,177,0.14)"/>
         </svg>
  
-        <!-- Portada real del libro -->
         <div class="obra-portada">
           <img [src]="obra.imagen" [alt]="obra.titulo" class="libro-img">
         </div>
  
-        <!-- Información de la obra -->
         <div class="obra-info">
           <h2 class="obra-nombre">{{ obra.titulo }}</h2>
           <p class="obra-subtitulo-card">{{ obra.subtitulo }}</p>
           <p class="obra-descripcion">{{ obra.descripcion }}</p>
  
-          <!-- Precio y acción -->
           <div class="obra-footer">
             <span class="obra-precio">{{ obra.precio }}</span>
-            <a routerLink="/tienda" class="btn-obra">Adquirir &rsaquo;</a>
+            <!-- Botón desactivado temporalmente -->
+            <span class="btn-obra btn-obra-desactivado" title="Próximamente">Próximamente</span>
           </div>
         </div>
  
@@ -87,7 +78,6 @@
  
   </section>
  
-  <!-- ── Flores esquina inferior ── -->
   <svg class="obras-floral-br" viewBox="0 0 260 200" fill="none">
     <ellipse cx="230" cy="170" rx="80" ry="70" fill="rgba(232,180,184,0.18)"/>
     <ellipse cx="180" cy="190" rx="60" ry="50" fill="rgba(201,125,138,0.12)"/>

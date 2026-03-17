@@ -22,7 +22,9 @@ export const routes: Routes = [
     },
     {
         path: "tienda",
-        component: Tienda
+        redirectTo: "/",
+        pathMatch: 'full',
+    // { path: 'tienda', component: Tienda },
     },
     {
         path: "obras",
