@@ -409,3 +409,11 @@
   .biblio-floral-tl { width: 180px; }
   .biblio-floral-tr { width: 140px; }
 }
+
+.btn-comprar-desactivado {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  font-style: italic;
+  display: block;
+}

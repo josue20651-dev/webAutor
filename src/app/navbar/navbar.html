@@ -1,10 +1,9 @@
 
 <div class="cursor-dot"  id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
-
+ 
 <section class="navbar">
-
-  <!-- Ícono rosa decorativo -->
+ 
   <svg class="navbar-icon" width="32" height="32" viewBox="0 0 36 36" fill="none">
     <circle cx="18" cy="18" r="4.5" fill="rgba(201,125,138,0.5)"/>
     <ellipse cx="18" cy="9"  rx="4" ry="6" fill="rgba(201,125,138,0.28)" transform="rotate(0   18 18)"/>
@@ -16,40 +15,37 @@
     <ellipse cx="18" cy="9"  rx="4" ry="6" fill="rgba(201,125,138,0.22)" transform="rotate(270 18 18)"/>
     <ellipse cx="18" cy="9"  rx="4" ry="6" fill="rgba(201,125,138,0.22)" transform="rotate(315 18 18)"/>
   </svg>
-
+ 
   <span class="navbar-logo">AustenJobs</span>
-
+ 
   <!-- Links desktop -->
   <div class="navbarItems">
     <h3 routerLink="/">INICIO</h3>
     <h3 routerLink="/bibliografia">BIBLIOGRAFÍA</h3>
     <h3 routerLink="/obras">OBRAS</h3>
     <h3 routerLink="/contacto">CONTACTO</h3>
-    <h3 routerLink="/tienda">TIENDA</h3>
+    <!-- TIENDA desactivada temporalmente -->
+    <h3 class="nav-item-desactivado" title="Próximamente">TIENDA</h3>
   </div>
-
-  <!-- Redes sociales -->
+ 
   <div class="redes">
     <a href="https://www.instagram.com/austenjobs/"  target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://x.com/austenjobs1"  target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
-    <a href="https://www.tiktok.com/@austenjobs"  target="_blank" rel="noopener"><i class="fa-brands fa-tiktok" ></i></a>
+    <a href="https://x.com/austenjobs1"              target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://www.tiktok.com/@austenjobs"     target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
   </div>
-
-  <!-- Burger button (solo móvil) -->
+ 
   <button class="burger" (click)="toggleMenu()" [class.abierto]="menuAbierto" aria-label="Menú">
     <span></span>
     <span></span>
     <span></span>
   </button>
-
+ 
 </section>
-
-<!-- Overlay oscuro detrás del menú -->
+ 
 <div class="mobile-overlay" [class.visible]="menuAbierto" (click)="cerrarMenu()"></div>
-
-<!-- Panel menú móvil -->
+ 
 <nav class="mobile-menu" [class.abierto]="menuAbierto">
-
+ 
   <div class="mobile-menu-header">
     <svg width="22" height="22" viewBox="0 0 36 36" fill="none">
       <circle cx="18" cy="18" r="4.5" fill="rgba(201,125,138,0.5)"/>
@@ -58,21 +54,22 @@
       <ellipse cx="18" cy="9" rx="4" ry="6" fill="rgba(201,125,138,0.22)" transform="rotate(180 18 18)"/>
       <ellipse cx="18" cy="9" rx="4" ry="6" fill="rgba(201,125,138,0.22)" transform="rotate(270 18 18)"/>
     </svg>
-    <span class="mobile-menu-logo">AutenJobs</span>
+    <span class="mobile-menu-logo">AustenJobs</span>
   </div>
-
+ 
   <div class="mobile-menu-links">
-    <a routerLink="/"             (click)="cerrarMenu()">Inicio</a>
-    <a routerLink="/bibliografia"  (click)="cerrarMenu()">Bibliografía</a>
-    <a routerLink="/obras"         (click)="cerrarMenu()">Obras</a>
-    <a routerLink="/contacto"      (click)="cerrarMenu()">Contacto</a>
-    <a routerLink="/tienda"        (click)="cerrarMenu()">Tienda</a>
+    <a routerLink="/"            (click)="cerrarMenu()">Inicio</a>
+    <a routerLink="/bibliografia" (click)="cerrarMenu()">Bibliografía</a>
+    <a routerLink="/obras"        (click)="cerrarMenu()">Obras</a>
+    <a routerLink="/contacto"     (click)="cerrarMenu()">Contacto</a>
+    <!-- TIENDA desactivada temporalmente -->
+    <span class="mobile-nav-desactivado">Tienda · Próximamente</span>
   </div>
-
+ 
   <div class="mobile-menu-redes">
     <a href="https://www.instagram.com/austenjobs/"  target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-    <a href="https://x.com/austenjobs1"  target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
-    <a href="https://www.tiktok.com/@austenjobs"  target="_blank" rel="noopener"><i class="fa-brands fa-tiktok" ></i></a>
+    <a href="https://x.com/austenjobs1"              target="_blank" rel="noopener"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://www.tiktok.com/@austenjobs"     target="_blank" rel="noopener"><i class="fa-brands fa-tiktok"></i></a>
   </div>
-
+ 
 </nav>

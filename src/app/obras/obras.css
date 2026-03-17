@@ -271,3 +271,10 @@
     gap: 14px;
   }
 }
+
+.btn-obra-desactivado {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+  font-style: italic;
+}
