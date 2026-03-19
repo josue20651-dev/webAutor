@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 export class Home {
  
   slideActivo: number = 0;
-  readonly totalSlides = 5;
+  readonly totalSlides = 4;
  
   nextSlide() {
     this.slideActivo = (this.slideActivo + 1) % this.totalSlides;
