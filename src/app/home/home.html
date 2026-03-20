@@ -126,6 +126,7 @@
   </div>
  
   <div class="carrusel-dots">
+    <!-- aumentar aca los puntitos cuando agreguemos amazon -->
     <button class="carrusel-dot" *ngFor="let d of [0,1,2,3]"
             [class.activo]="slideActivo === d"
             (click)="irASlide(d)">
