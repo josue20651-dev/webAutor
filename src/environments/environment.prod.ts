@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://webautor-production.up.railway.app'
+  apiUrl: 'webautor-production-6357.up.railway.app'
 };
