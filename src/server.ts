@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 default-src 'self';
 script-src 'self' 'unsafe-inline' http://localhost:4200 https://sandbox.flow.cl https://www.google.com https://www.gstatic.com https://h.online-metrix.net https://h64.online-metrix.net;
 frame-src 'self' https://sandbox.flow.cl https://www.google.com;
-connect-src 'self' http://localhost:4000 https://sandbox.flow.cl https://www.google.com;
+connect-src 'self' http://localhost:4000 ${baseUrl} https://www.austenjobs.com https://sandbox.flow.cl https://www.google.com;
 img-src 'self' data: https:;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src 'self' data: https://fonts.gstatic.com;
