@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
  
 @Component({
@@ -7,7 +8,22 @@ import { RouterModule } from '@angular/router';
   templateUrl: './obras.html',
   styleUrl: './obras.css',
 })
-export class Obras {
+export class Obras implements OnInit{
+
+   constructor(
+    private title: Title,
+    private meta: Meta
+  ) {}
+
+  ngOnInit() {
+    this.title.setTitle('Biografía | AustenJobs - Sobre el autor');
+
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Descubre todas las obras de AustenJobs. Una colección de novelas originales que exploran historias profundas, creativas y únicas.'
+    });
+  }
+
   obras = [
     {
       titulo: 'El Lobo y la Luna',
@@ -18,8 +34,10 @@ export class Obras {
       genero: 'Romance',
       paginas: '—',
       edicion: 'eBook',
-      imagen: '/ElLoboYLaLuna.jpg',  // ← agregar esto
+      imagen: '/ElLoboYLaLuna.jpg',  
     },
   ];
+
+  
 }
  
