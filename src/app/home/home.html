@@ -47,10 +47,11 @@
         <div class="carrusel-slide">
           <a href="https://www.amazon.com/-/es/Austen-Jobs-ebook/dp/B0H2T68DJ3?dib=eyJ2IjoiMSJ9.mWwFoIXzJdnVB9tV-QyKUD28MtLFXs7tqnm9IALUgBU.jCcsnMkbJLPUyGXyD495o-gNioYSRi52OgG-VLjJRyE&dib_tag=se&qid=1792357222&refinements=p_27%3AAusten++Jobs&s=digital-text&sr=1-1&text=Austen++Jobs" target="_blank" rel="noopener" class="slide-link">
             <div class="slide-icono">
-              <svg viewBox="0 0 48 48" fill="none" width="56" height="56">
-                <path d="M8 31c7 4.5 22 7 32-2" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
-                <path d="M36 31l4-1.5-1.5 4" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14 10h4l3 14 3-10h3l3 10 3-14h4" stroke="#232F3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 48 48" fill="none" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 19c0-5 3-8 8-8 5 0 8 3 8 8v13h-5v-3c-2 3-4 4-7 4-5 0-8-3-8-7 0-5 4-8 10-8h5v-1c0-3-1-4-4-4-2 0-4 1-5 3l-2-1z" fill="#232F3E"/>
+                <path d="M19 26c0-2 2-4 5-4h2v4c-1 2-3 3-5 3-1 0-2-1-2-3z" fill="#FFFFFF"/>
+                <path d="M8 35c9 6 22 6 32-1" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M35 31l5 3-1 5" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <h3 class="slide-nombre">Amazon</h3>
@@ -127,7 +128,7 @@
  
   <div class="carrusel-dots">
     <!-- aumentar aca los puntitos cuando agreguemos amazon -->
-    <button class="carrusel-dot" *ngFor="let d of [0,1,2,3]"
+    <button class="carrusel-dot" *ngFor="let d of [0,1,2,3,4]"
             [class.activo]="slideActivo === d"
             (click)="irASlide(d)">
     </button>
