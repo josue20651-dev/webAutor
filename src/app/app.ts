@@ -5,7 +5,7 @@ import { Carrito } from "./carrito/carrito";
   
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Carrito],
+  imports: [RouterOutlet, Navbar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
